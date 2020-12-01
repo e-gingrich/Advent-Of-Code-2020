@@ -1,3 +1,8 @@
+/*
+    Day 1 Solution for Advent of Code 2020
+    Author: Ethan Gingrich
+ */
+
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -36,6 +41,7 @@ main(int argc, char const *argv[])
 
 }
 
+// Code for Part 1
 void
 part_one (std::vector<double> n)
 {
@@ -51,6 +57,7 @@ part_one (std::vector<double> n)
               << num1 * num2 << "\n";
 }
 
+// Code for Part 2
 void
 part_two (std::vector<double> n)
 {
@@ -79,6 +86,7 @@ part_two (std::vector<double> n)
     }
 }
 
+// finds the desired sum from a vector of numbers
 std::vector<double>
 find_sum (std::vector<double> numbers, double desired)
 {
