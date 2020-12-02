@@ -13,7 +13,7 @@ public class day2 {
     public static void main(String[] args) 
     {
         try {
-            File input = new File ("/home/ethan/git/Advent-Of-Code-2020/day 2/input");
+            File input = new File ("/home/ethan/git/Advent-Of-Code-2020/day 2/input.txt");
             Scanner reader = new Scanner (input);
             int countp1 = 0;
             int countp2 = 0;
