@@ -8,7 +8,7 @@ C++, Java, Javascript, Python, COBOL (Yeah, you heard right), C#, and Go.
 
 This gives me 7 languages that I can spread out over a week. I've already done day 1 in C++, so the rest of the schedule will go as follows:
 - Dec. 1 - C++ (Finished)
-- Dec. 2 - Java
+- Dec. 2 - Java (Finished)
 - Dec. 3 - Javascript
 - Dec. 4 - Python
 - Dec. 5 - COBOL
