@@ -41,7 +41,7 @@ main(int argc, char const *argv[])
 
 }
 
-// Code for Part 1
+// Code for Part 1, find 2 numbers in input that sum to 2020 and return their product
 void
 part_one (std::vector<double> n)
 {
@@ -57,7 +57,7 @@ part_one (std::vector<double> n)
               << num1 * num2 << "\n";
 }
 
-// Code for Part 2
+// Code for Part 2, find 3 numbers in input that sum to 2020 and return their product
 void
 part_two (std::vector<double> n)
 {
