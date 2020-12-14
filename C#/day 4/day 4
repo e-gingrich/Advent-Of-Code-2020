@@ -1,0 +1,185 @@
+/******************************************************************************
+
+Advent of Code 2020 Day 4
+Author: Ethan Gingrich
+
+*******************************************************************************/
+using System;
+using System.Globalization;
+using System.Text.RegularExpressions;
+
+class passportReader {
+  static void Main() {
+    string[] lines = System.IO.File.ReadAllLines (@"/home/ethan/git/Advent-Of-Code-2020/C#/day 4/input.txt");
+    
+    part_1 (lines);
+    part_2 (lines);
+  }
+  
+  static void part_1 (string[] lines){
+    int required = 0;
+    int count = 0;
+    foreach (string line in lines)
+    {
+        if (line == "")
+        {
+            if (required == 7)
+                count++;
+            required = 0;
+        }
+        else 
+        {
+            char[] delims = {' ', ':'};
+            string[] codes = line.Split (delims);
+            foreach (var code in codes)
+            {
+                if (code.Equals("byr"))
+                {
+                    required++;
+                } else if (code.Equals("iyr"))
+                {
+                    required++;
+                }
+                else if (code.Equals("eyr"))
+                {
+                    required++;
+                }
+                else if (code.Equals("hgt"))
+                {
+                    required++;
+                }
+                else if (code.Equals("hcl"))
+                {
+                    required++;
+                }
+                else if (code.Equals("ecl"))
+                {
+                    required++;
+                }
+                else if (code.Equals("pid"))
+                {
+                    required++;
+                }
+            }
+        }
+    }
+    
+    Console.WriteLine("Part 1: " + count);
+  }
+  
+  static void part_2 (string[] lines) {
+    int valid = 0;
+    int count = 0;
+      
+    foreach (string line in lines)
+    {
+        if (line == "")
+        {
+            if (valid == 7)
+            {
+                count++;
+            }
+            valid = 0;
+        }
+        else 
+        {
+            string [] blocks = line.Split (' ');
+            foreach (var block in blocks)
+            {
+                string[] codes = block.Split(':');
+                for (int i = 0; i < codes.Length; i++)
+                {
+                    if (codes[i].Equals("byr"))
+                    {
+                        int num = Int32.Parse(codes[++i]);
+                        if (num >= 1920 & num <= 2002)
+                        {
+                            valid++;
+                        }
+                    }
+                    else if (codes[i].Equals("iyr"))
+                    {
+                        int num = Int32.Parse(codes[++i]);
+                        if (num >= 2010 & num <= 2020)
+                        {
+                            valid++;
+                        }
+                    }
+                    else if (codes[i].Equals("eyr"))
+                    {
+                        int num = Int32.Parse(codes[++i]);
+                        if (num >= 2020 & num <= 2030)
+                        {
+                            valid++;
+                        }
+                    }
+                    else if (codes[i].Equals("hgt"))
+                    {
+                        if (check_hgt (codes[++i]) == 1)
+                        {
+                            valid++;
+                        }
+                    }
+                    else if (codes[i].Equals("hcl"))
+                    {
+                        string code = codes[++i];
+                        char[] chars = {'g', 'h', 'i', 'j', 'k', 'l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+                        
+                        if (code.IndexOf('#') == 0)
+                        {
+                            if (code.IndexOfAny(chars) == -1)
+                            {
+                                valid++;
+                            }
+                        }
+                    }
+                    else if (codes[i].Equals("ecl"))
+                    {
+                        string code = codes[++i];
+                        string[] eyes= {"amb", "blu", "brn", "gry", "grn", "hzl", "oth"};
+                        foreach (string clr in eyes)
+                        {
+                            if (code.Equals(clr))
+                            {
+                                valid++;
+                            }
+                        }
+                    }
+                    else if (codes[i].Equals("pid"))
+                    {
+                        if (codes[++i].Length == 9)
+                        {
+                            valid++;
+                        }
+                    }     
+                }
+            }
+        }
+    }   
+    Console.WriteLine("Part 2: " + count);
+}
+   
+   static int check_hgt (string height)
+   {
+       if (height.Length == 5)
+       {
+           if (height.IndexOf("c") != -1)
+           {
+               string[] num = height.Split('c');
+               int cm = Int32.Parse(num[0]);
+               if (cm >= 150 & cm <= 193)
+                    return 1;
+           }
+       } else if (height.Length == 4)
+       {
+           if (height.IndexOf("i") != -1)
+           {
+               string[] num = height.Split('i');
+               int inch = Int32.Parse(num[0]);
+               if (inch >= 59 & inch <= 76)
+                    return 1;
+           }
+       }
+       return 0;
+   }
+}
