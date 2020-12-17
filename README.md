@@ -6,7 +6,7 @@ My goal for my first advent of code is to:
 The languages I'm going to be using this month are:
 C++, Java, Python, C#, and Go.
 
-This gives me 7 languages that I can spread out over a week. I've already done day 1 in C++, so the rest of the schedule will go as follows:
+This gives me 5 languages that I can spread out over the whole month. I've already done day 1 in C++, so the rest of the schedule will go as follows:
 - Dec. 1 - C++ (Finished)
 - Dec. 2 - Java (Finished)
 - Dec. 3 - Python (Finished)
